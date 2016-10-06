@@ -62,15 +62,7 @@
       debugger
       var options = _.map(data, vers => ({label: vers, value: vers}))
       $appFilter.MPSelect({items: options})
-      var params = {
-        from: moment().subtract(30, 'days'),
-        to: moment(),
-        length: 14,
-        limit: 200,
-        interval: 90,
-        where: '(properties["app version"] == "' + $appFilter.val() + '")'
-      }
-  
+     
       var width = 960;
       var height = 750;
       var cluster = d3.layout.cluster()
@@ -160,7 +152,16 @@
         /* Dict with top counts for each event */
         var nodes = {};
         var promises = []
-          
+        var dates = datesSelector.MPDatepicker('value')
+        var params = {
+          from: dates.from,
+          to: dates.to,
+          length: 14,
+          limit: 200,
+          interval: 90,
+          where: '(properties["app version"] == "' + $appFilter.val() + '")'
+        }
+  
         _.each(_.keys(event_list), function(key) {
           var event = event_list[key];
           var parent = node;
