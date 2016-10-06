@@ -59,7 +59,7 @@
       var objs = {};
       var graphData = {}
       
-      MP.api.query('properties/values', { name: '$app_version', limit:1500 }).done(function(data){
+      MP.api.query('api/2.0/events/properties/values', { name: '$app_version', limit:1500 }).done(function(data){
       debugger
       var params = {
         from: moment().subtract(30, 'days'),
