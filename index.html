@@ -226,9 +226,6 @@
         var rootEvent = rootEventSelect.MPEventSelect('value')
         var dates = datesSelector.MPDatepicker('value')
         
-        params.from = dates.from;
-        params.to = dates.to;
-        
         /* This Event Represents the Origin of the User Flow Diagram. */
         
         graphData = {
@@ -238,8 +235,8 @@
         };
         
         var rootParams = {
-          from: params.from,
-          to: params.to,
+          from: dates.from,
+          to: dates.to,
           type: 'unique',
           interval: 32,
           where: '(properties["app version"] == "' + $appFilter.val() + '")'
