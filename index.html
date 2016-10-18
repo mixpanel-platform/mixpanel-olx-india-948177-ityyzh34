@@ -58,7 +58,7 @@
       var objs = {};
       var graphData = {}
       
-      MP.api.query('api/2.0/events/properties/values', { name: 'app version', limit:1500 }).done(function(data){
+      MP.api.query('api/2.0/events/properties/values', { name: 'App Version', limit:1500 }).done(function(data){
       debugger
       var options = _.map(data, vers => ({label: vers, value: vers}))
       $appFilter.MPSelect({items: options})
